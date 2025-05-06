@@ -1,0 +1,22 @@
+# .github/workflows/test_action.yaml
+name: Test Action
+on: [push]
+
+jobs:
+  parse_rl_json:
+    runs-on: ubuntu-latest
+    name: parse a report.rl.json file
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch num squared
+        id: get_square
+        uses: ./ # Uses an action in the root directory
+        # or use a released GitHub Action
+        # uses: shipyard/github-action/fetch-shipyard-env@1.0.0
+        with:
+          num: 11
+
+      - name: Print the outout file
+        run: echo "${{ steps.parse.outputs.simple_summary_markdown }}"

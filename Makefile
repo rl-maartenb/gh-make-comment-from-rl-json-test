@@ -2,6 +2,7 @@
 
 FILES := parse-rl-json-github.py
 TEST_FILE := ~/json/NodeGoat.zip-reports/report.rl.json
+TEST_FILE := ./tests/report.rl.json
 
 all: clean prep test
 
