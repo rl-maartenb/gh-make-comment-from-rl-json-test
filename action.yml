@@ -1,0 +1,27 @@
+name: 'simple-status-summary-from-rl-json'
+description: 'A GitHub Action that builds a simple scan summary in simple-summsry.md from a report.rl.json file'
+
+inputs:
+  rl_json_file_path:
+    description: 'the path to the report.rl.json'
+    required: true
+
+outputs:
+  simple_summary_markdown:
+    description: 'The path to the markdown summary file'
+    value: ${{ steps.parse.outputs.simple_summary_markdown }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Install Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+
+    - name: parse the report.rl.json
+      id: parse
+      run: |
+            python parse-rl-json-github.py ${{ inputs.rl_json_file_path }} >simple_summary_markdown.md
+            echo "simple_summary_markdown=simple_summary_markdown.md" >> $GITHUB_OUTPUT
+      shell: bash
