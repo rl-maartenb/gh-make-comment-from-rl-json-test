@@ -21,4 +21,4 @@ jobs:
           rl_json_file_path: 'tests/report.rl.json'
 
       - name: Print the outout file
-        run: echo "${{ steps.parse.outputs.simple_summary_markdown }}"
+        run: echo "${{ steps.parse_test.outputs.simple_summary_markdown }}"
