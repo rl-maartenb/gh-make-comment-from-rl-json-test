@@ -13,10 +13,11 @@ jobs:
 
       # uses: ./ # Uses an action in the root directory
       # or use a released GitHub Action
-      # uses: shipyard/github-action/fetch-shipyard-env@1.0.0
+      # uses: rl-maartenb/gh-make-comment-from-rl-json-test@v0.0.2
       - name: produce a output md file
         id: parse_test
-        uses: ./
+        # uses: ./
+        uses: rl-maartenb/gh-make-comment-from-rl-json-test@v0.0.2
         with:
           rl_json_file_path: 'tests/report.rl.json'
 
