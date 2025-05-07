@@ -22,7 +22,10 @@ runs:
     - name: parse the report.rl.json
       id: parse
       run: |
-            python parse-rl-json-github.py ${{ inputs.rl_json_file_path }} >simple_summary_markdown.md
-            ls -l ${{ inputs.rl_json_file_path }} simple_summary_markdown.md
-            echo "simple_summary_markdown=simple_summary_markdown.md" >> $GITHUB_OUTPUT
+            name="simple_summary_markdown"
+            out="${name}.md"
+            inp=${{ inputs.rl_json_file_path }}
+            python parse-rl-json-github.py ${inp} >${out}
+            ls -l ${inp} ${out}
+            echo "${name}=${out}" >> $GITHUB_OUTPUT
       shell: bash
