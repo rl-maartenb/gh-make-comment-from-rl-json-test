@@ -18,7 +18,7 @@ jobs:
         id: parse_test
         uses: ./
         with:
-          rl_json_file_path: 'test/report.rl.json'
+          rl_json_file_path: 'tests/report.rl.json'
 
       - name: Print the outout file
         run: echo "${{ steps.parse.outputs.simple_summary_markdown }}"
