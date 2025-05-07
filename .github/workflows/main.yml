@@ -11,13 +11,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # uses: ./ # Uses an action in the root directory
-      # or use a released GitHub Action
-      # uses: rl-maartenb/gh-make-comment-from-rl-json-test@v0.0.2
       - name: produce a output md file
         id: parse_test
         # uses: ./
-        uses: rl-maartenb/gh-make-comment-from-rl-json-test@v0.0.3
+        uses: rl-maartenb/gh-make-comment-from-rl-json-test@v0.0.4
         with:
           rl_json_file_path: 'tests/report.rl.json'
 
